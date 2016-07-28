@@ -3,7 +3,7 @@ var router = express.Router();
 
 var AWS = require('aws-sdk');
 
-AWS.config.credentials = new AWS.EnvironmentCredentials('AWS');
+AWS.config.credentials = new AWS.EC2MetadataCredentials();
 
 
 AWS.config.credentials = new AWS.TemporaryCredentials({
