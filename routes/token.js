@@ -14,13 +14,18 @@ function localAuth() {
   AWS.config.credentials = new AWS.TemporaryCredentials({
     RoleArn: 'arn:aws:iam::676890035424:role/delegate',
     RoleSessionName: 'RoleSessionName1',
-    expireTime: new Date()
+    expireTime: 1000
   });
   return AWS.config.credentials;
 }
 
-// AWS.config.credentials = localAuth();
-AWS.config.credentials = ec2Auth();
+
+if (process.env.ENV == 'EC2') {
+  AWS.config.credentials = ec2Auth();
+} else {
+  AWS.config.credentials = localAuth();
+}
+
 
 AWS.config.credentials.refresh();
 
