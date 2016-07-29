@@ -19,7 +19,7 @@ function localAuth() {
   return AWS.config.credentials;
 }
 
-
+console.log('process.env.ENV', process.env.ENV);
 if (process.env.ENV == 'EC2') {
   AWS.config.credentials = ec2Auth();
 } else {
