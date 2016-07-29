@@ -7,7 +7,7 @@ AWS.config.credentials = new AWS.EC2MetadataCredentials();
 
 
 AWS.config.credentials = new AWS.TemporaryCredentials({
-  RoleArn: 'arn:aws:iam::676890035424:role/delegate', 
+  RoleArn: 'arn:aws:iam::676890035424:role/ec2-kinesis',
   RoleSessionName: 'RoleSessionName1',
   expireTime: new Date()
 });
