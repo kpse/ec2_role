@@ -12,6 +12,12 @@ AWS.config.credentials = new AWS.TemporaryCredentials({
   expireTime: new Date()
 });
 
+AWS.config.credentials = new AWS.TemporaryCredentials({
+  RoleArn: 'arn:aws:iam::676890035424:role/delegate',
+  RoleSessionName: 'RoleSessionName2',
+  expireTime: new Date()
+});
+
 /* GET users listing. */
 router.get('/', function (req, res, next) {
   console.log(AWS.config.credentials);
