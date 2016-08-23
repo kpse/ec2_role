@@ -35,20 +35,20 @@ router.get('/', function (req, res, next) {
   AWS.config.credentials.refresh(function () {
     res.send(
       {
-        "data": {
-          "type": "publisherAwsToken",                 // singular as per latest API standard
-          "attributes": {
-            "token": {
-              "awsAccessKeyId": AWS.config.credentials.accessKeyId                     //credentials.AccessKeyId,
-              "awsSecretAccessKey": AWS.config.credentials.secretAccessKey                 //credentials.SecretAccessKey,
-              "awsSessionToken": AWS.config.credentials.sessionToken                   //credentials.SessionToken,
-              "expiration": AWS.config.credentials.expireTime                         //credentials.Expiration,
+        data: {
+          type: "publisherAwsToken",                 // singular as per latest API standard
+          attributes: {
+            token: {
+              awsAccessKeyId: AWS.config.credentials.accessKeyId,                     //credentials.AccessKeyId,
+              awsSecretAccessKey: AWS.config.credentials.secretAccessKey,                 //credentials.SecretAccessKey,
+              awsSessionToken: AWS.config.credentials.sessionToken,                   //credentials.SessionToken,
+              expiration: AWS.config.credentials.expireTime                         //credentials.Expiration,
             },
 
-            "resource": {
-              "eventType": 'ledgerDetailEvent'                        //streamConfig.enventType (e.g. "ledgerDetailEvent"),
-              "kinesisStreamName": 'louis_stream'              //streamConfig.kinesisStream (e.g. "lc-prod-essentials"),
-              "region": 'us-west-2'                           //region (e.g."us-west-2")
+            resource: {
+              eventType: 'ledgerDetailEvent',                        //streamConfig.enventType (e.g. "ledgerDetailEvent"),
+              kinesisStreamName: 'louis_stream',              //streamConfig.kinesisStream (e.g. "lc-prod-essentials"),
+              region: 'us-west-2'                           //region (e.g."us-west-2")
             }
           }
         }
